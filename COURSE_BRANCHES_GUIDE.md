@@ -170,11 +170,12 @@ Concerned with communication between objects and assignment of responsibilities
 ---
 
 ## 📝 Notes
-- Each branch is set up to track its corresponding remote branch
+- All branches are now local-only (no longer tracking remote branches)
 - All remote branches have been checked out locally for offline access
 - The `main` branch contains the base course structure
 - Use `git status` to check your current branch
 - Files may vary between branches - this is expected as each represents different lesson states
+- Repository is fully independent and can be modified freely
 
 ---
 
