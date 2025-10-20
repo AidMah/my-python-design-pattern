@@ -1,0 +1,17 @@
+@startuml
+class Dog {
+    speak()
+    __str__()
+        __init__()
+}
+class DogFactory {
+    get_pet()
+    get_food()
+        __init__()
+}
+class PetStore {
+    show_pet()
+        _pet_factory
+    __init__()
+}
+@enduml
