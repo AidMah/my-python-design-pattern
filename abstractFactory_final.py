@@ -8,6 +8,18 @@ class Dog:
 		return "Dog"
 
 
+class Cat:
+	"""Another pet object to be returned"""
+
+	def speak(self):
+		return "Meow!"
+
+	def __str__(self):
+		return "Cat"
+	
+	
+
+
 class DogFactory:
 	"""Concrete Factory"""
 
@@ -18,6 +30,18 @@ class DogFactory:
 	def get_food(self):
 		"""Returns a Dog Food object"""
 		return "Dog Food!"
+
+
+class CatFactory:
+	"""Concrete Factory for Cat"""
+
+	def get_pet(self):
+		"""Returns a Cat object"""
+		return Cat()
+
+	def get_food(self):
+		"""Returns a Cat Food object"""
+		return "Cat Food!"
 
 
 class PetStore:
@@ -50,4 +74,18 @@ shop = PetStore(factory)
 
 #Invoke the utility method to show the details of our pet
 shop.show_pet()
+
+print("\n" + "="*50)
+print("Now let's try with a Cat Factory!")
+print("="*50)
+
+#Create a Cat Factory
+cat_factory = CatFactory()
+print(cat_factory.get_pet().speak())  # Debug demonstration
+
+#Create a pet store with Cat Factory
+cat_shop = PetStore(cat_factory)
+
+#Show the cat details
+cat_shop.show_pet()
 
