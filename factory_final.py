@@ -7,11 +7,21 @@ class Pet:
 		self._sound = "Silence"
 
 	def __eq__(self, other):
-		if isinstance(other, Pet):
-			return (self._sound) == (other._sound)
-		return NotImplemented
+		"""
+		Magic method for equality comparison (==)
+		Compares two Pet objects based on their sound, not their name
+		Example: Dog("Rex") == Dog("Max") returns True (both bark "Woof!")
+		"""
+		if isinstance(other, Pet):  # Check if 'other' is also a Pet object
+			return (self._sound) == (other._sound)  # Compare sounds
+		return NotImplemented  # Let Python handle comparison with non-Pet objects
 
 	def __str__(self):
+		"""
+		Magic method for string representation
+		Defines how the object appears when printed or converted to string
+		Returns format: "Name | Sound" (e.g., "Hope | Woof!")
+		"""
 		return '{} | {}'.format(self._name, self._sound)
 
 	def speak(self):
@@ -50,9 +60,9 @@ def get_pet(pet="dog"):
 
 def get_pig():
     pig = get_pet("pig")
-    print(pig.speak())  # Debug or demonstration
+    print(f"get_pig() function says: {pig.speak()}")  # Debug or demonstration
     return pig
-    return Pet("Unknown")
+
 
 
 
@@ -65,7 +75,8 @@ c = get_pet("cat")
 print(c.speak())
 
 p= get_pet("pig")
-print(p.speak())
+print(p.speak()	)
+p2=get_pig()
 
 
 
