@@ -42,6 +42,8 @@ class PetStore:
 
 #Create a Concrete Factory
 factory = DogFactory()
+ # Debug or demonstration
+print(factory.get_pet().speak()) 
 
 #Create a pet store housing our Abstract Factory
 shop = PetStore(factory)
