@@ -45,7 +45,7 @@ p.produce()
 p.occupied = 'Yes'
 
 #Make the Producer produce
-p.produce()
-p.produce()
+p.produce() #Now the producer is busy
+p.produce() #Now the producer is not busy
 
 
