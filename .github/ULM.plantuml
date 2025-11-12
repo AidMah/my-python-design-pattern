@@ -1,0 +1,38 @@
+@startuml UML_Python_Prototype_Pattern
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam class {
+    BackgroundColor LightYellow
+    BorderColor Black
+    ArrowColor Black
+}
+
+title Python Prototype Pattern
+
+class Prototype {
+  - _objects : dict
+  --
+  + __init__()
+  + register_object(name, obj)
+  + unregister_object(name)
+  + clone(name, **attr) : object
+}
+
+class Car {
+  + name : str
+  + color : str
+  + options : str
+  --
+  + __init__()
+  + __str__() : str
+}
+
+Prototype "1" o-- "0..*" Car : manages
+
+note right of Prototype
+  Uses copy.deepcopy()
+  to clone objects
+end note
+
+@enduml

@@ -1,0 +1,5 @@
+@startuml simple_test
+skinparam Style strictuml
+Alice -> Bob: Hello Test
+Bob --> Alice: Hi there
+@enduml
