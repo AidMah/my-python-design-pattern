@@ -2,6 +2,7 @@ class Korean:
 	"""Korean speaker"""
 	def __init__(self):
 		self.name = "Korean"
+		self.surname = "Kim"
 
 	def speak_korean(self):
 		return "An-neyong?"
@@ -10,6 +11,7 @@ class British:
 	"""English speaker"""
 	def __init__(self):
 		self.name = "British"	
+		self.surname = "Smith"
 
 	#Note the different method name here!
 	def speak_english(self):
@@ -24,8 +26,8 @@ class Adapter:
 
 		#Add a new dictionary item that establishes the mapping between the generic method name: speak() and the concrete method
 		#For example, speak() will be translated to speak_korean() if the mapping says so
-		self.__dict__.update(adapted_method)
-
+  
+		self.__dict__.update(adapted_method) #Mapping between generic and specific method names
 	def __getattr__(self, attr):
 		"""Simply return the rest of attributes!"""
 		return getattr(self._object, attr)
@@ -35,15 +37,26 @@ objects = []
 
 #Create a Korean object
 korean = Korean()
+print(korean.__dict__) #{'name': 'Korean', 'surname': 'Kim'}
 
 #Create a British object
 british =British()
+print(british.__dict__) #{'name': 'British'}
+
 
 #Append the objects to the objects list
-objects.append(Adapter(korean, speak=korean.speak_korean))
-objects.append(Adapter(british, speak=british.speak_english))
+objects.append(Adapter(korean, speak=korean.speak_korean)) #Mapping speak() to speak_korean()
+objects.append(Adapter(british, speak=british.speak_english)) #Mapping speak() to speak_english()
 
 
 for obj in objects:
-	print("{} says '{}'\n".format(obj.name, obj.speak()))
+    print(obj.__dict__) #Print the attributes of the object inside the Adapter
+    if obj.name == "Korean":
+     print("{} {} says '{}'".format(obj.name, obj.surname, obj.speak_korean())) #Using the orginal object attribute and method
+    elif obj.name == "British":
+        print("{} {} says '{}'".format(obj.name, obj.surname, obj.speak_english())) #Using the orginal object attribute and method
+	
+    print("{} says '{}'\n".format(obj.name, obj.speak()))
+
+
 
