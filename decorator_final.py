@@ -4,12 +4,12 @@ def make_blink(function):
 	"""Defines the decorator"""
 
 	#This makes the decorator transparent in terms of its name and docstring
-	@wraps(function)
+	@wraps(function) #
 
 	#Define the inner function
-	def decorator():
+	def decorator(name):
 		#Grab the return value of the function being decorated
-		ret = function() 
+		ret = function(name) 
 		#Add new functionality to the function being decorated
 		return "<blink>" + ret + "</blink>"
 
@@ -17,13 +17,13 @@ def make_blink(function):
 
 #Apply the decorator here!
 @make_blink
-def hello_world():
-	"""Original function! """
+def hello_world(name):
+	"""Original function! """ # This is the original function's docstring
 
-	return "Hello, World!"
+	return "I am " + name
 
 #Check the result of decorating
-print(hello_world())
+print(hello_world("GitHub Copilot"))
 
 #Check if the function name is still the same name of the function being decorated
 print(hello_world.__name__)
