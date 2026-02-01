@@ -1,8 +1,9 @@
 import time
 
 class Producer:
-	"""Define the 'resource-intensive' object to instantiate!"""
-	print("Producer is working hard!")
+	def __init__(self):
+		"""Define the 'resource-intensive' object to instantiate!"""
+		print("Producer is working hard!")
 	def produce(self):
 		print("Producer is working hard!")
 
