@@ -1,0 +1,33 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide circle
+
+class Subject {
+  - _observers : list
+  + __init__()
+  + attach(observer)
+  + detach(observer)
+  + notify(modifier=None)
+}
+
+class Core {
+  - _name : str
+  - _temp : int
+  + __init__(name="")
+  + temp : int <<property>>
+}
+
+class TempViewer {
+  + update(subject)
+}
+
+' Inheritance
+Subject <|-- Core
+
+' Subject holds many observers (one-to-many)
+Subject "1" o-- "0..*" TempViewer : _observers
+
+' update() depends on Subject (parameter)
+TempViewer ..> Subject : update(subject)
+
+@enduml

@@ -22,7 +22,7 @@ class Subject(object): #Represents what is being 'observed'
 class Core(Subject): #Inherits from the Subject class
 
 	def __init__(self, name=""):
-		Subject.__init__(self)
+		Subject.__init__(self) #Call the constructor of the Subject class to initialize the list of observers self._observers = [] in the Subject class
 		self._name = name #Set the name of the core
 		self._temp = 0 #Initialize the temperature of the core
 
@@ -34,6 +34,9 @@ class Core(Subject): #Inherits from the Subject class
 	def temp(self, temp):
 		self._temp = temp
 		self.notify() #Notify the observers whenever somebody changes the core temperature
+
+	def __str__(self):
+		return "{} has Temperature {}".format(self._name, self._temp)
 
 class TempViewer:
 
@@ -50,9 +53,13 @@ v2 = TempViewer()
 
 #Let's attach our observers to the first core
 c1.attach(v1)
-c1.attach(v2)
+c2.attach(v2)
 
 #Let's change the temperature of our first core
 c1.temp = 80
+print(c1)
+'''
 c1.temp = 90
+c1.temp = 110
 
+'''
