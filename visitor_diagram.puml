@@ -1,0 +1,27 @@
+@startuml
+
+class House {
+    +accept(visitor)
+    +work_on_hvac(hvac_specialist)
+    +work_on_electricity(electrician)
+}
+
+abstract class Visitor {
+}
+
+class HvacSpecialist {
+    +visit(house)
+}
+
+class Electrician {
+    +visit(house)
+}
+
+Visitor <|-- HvacSpecialist
+Visitor <|-- Electrician
+
+House --> Visitor : accepts
+HvacSpecialist --> House : visits
+Electrician --> House : visits
+
+@enduml

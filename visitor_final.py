@@ -23,7 +23,7 @@ class Visitor(object):
 
 class HvacSpecialist(Visitor): #Inherits from the parent class, Visitor
 	"""Concrete visitor: HVAC specialist"""
-	def visit(self, house):
+	def visit(self, house): #The visit() method takes the house object as an argument
 		house.work_on_hvac(self) #Note that the visitor now has a reference to the house object
 
 
