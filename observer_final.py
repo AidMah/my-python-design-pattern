@@ -44,22 +44,23 @@ class TempViewer:
 		print("Temperature Viewer: {} has Temperature {}".format(subject._name, subject._temp))
 
 #Let's create our subjects
-c1 = Core("Core 1")
+c1 = Core("Core 1") #Create a core named "Core 1" 
 c2 = Core("Core 2")
+c3 = Core("Core 3")
 
 #Let's create our observers
 v1 = TempViewer()
 v2 = TempViewer()
 
 #Let's attach our observers to the first core
-c1.attach(v1)
-c2.attach(v2)
+c1.attach(v1) #Attach the first observer to the first core by inserting it into the list of observers in the first core
+c2.attach(v2) #Attach the second observer to the second core
+c3.attach(v2) #Attach the second observer to the third core
 
 #Let's change the temperature of our first core
 c1.temp = 80
 print(c1)
-'''
-c1.temp = 90
-c1.temp = 110
+''''''
+c2.temp = 90
+c3.temp = 110
 
-'''
